@@ -1,0 +1,128 @@
+---
+title: Changelog
+description: Track the latest updates and improvements to rshelekhov.
+---
+
+## Recent Updates
+
+Stay informed about new features, improvements, bug fixes, and breaking changes in rshelekhov. You receive notifications for major releases through your dashboard at `https://dashboard.example.com`.
+
+<Callout kind="info">
+  Check this changelog regularly to ensure you run the latest version. Upgrade using the CLI command shown below.
+</Callout>
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+## New Features
+
+- Added support for `<Tabs>` and `<CodeGroup>` components with synchronized highlighting across languages.
+- Introduced `<Columns>` layout for creating responsive feature grids in your documentation pages.
+- Enabled custom brand colors via YAML frontmatter, like `brandColor: "#3B82F6"`.
+
+## Improvements
+
+- Enhanced MDX parsing to better handle nested code blocks with 4-backtick fencing.
+- Improved accessibility with required `alt` attributes on all `<Image>` components.
+
+## Bug Fixes
+
+- Fixed parsing errors caused by unescaped `{` and `}` characters in prose text.
+- Resolved heading hierarchy issues where H1 was incorrectly generated.
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "bugfix"]}>
+## New Features
+
+- Added `<ParamField>` and `<ResponseField>` components for API parameter documentation.
+- Introduced `<Request>` and `<Response>` components for tabbed HTTP examples.
+
+## Bug Fixes
+
+- Corrected self-closing tag issues in container components like `<Steps>` and `<Expandable>`.
+- Fixed attribute parsing for arrays like `tags={["feature", "bugfix"]}`.
+
+## Improvements
+
+- Optimized rendering speed for pages with multiple `<Update>` components.
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["breaking", "feature"]}>
+## Breaking Changes
+
+- Removed support for single-quoted attributes; use double quotes only, e.g., `title="Text"`.
+- Mermaid diagrams now require strict code block syntax—no `<Mermaid>` component.
+
+## New Features
+
+- Initial release with core components: `<Callout>`, `<Card>`, `<Steps>`, and `<Update>`.
+- Full YAML frontmatter validation for titles and descriptions.
+- Integrated Lucide icons for all interactive elements.
+
+## Initial Setup
+
+- Basic documentation scaffolding for new projects.
+</Update>
+
+## Upgrade Instructions
+
+Follow these steps to upgrade rshelekhov to the latest version.
+
+<Steps>
+  <Step title="Check Current Version" icon="package">
+    Run the version check command.
+
+````bash
+npx rshelekhov --version
+````
+  </Step>
+  <Step title="Update Package" icon="download">
+    Use your package manager to update.
+
+    <CodeGroup tabs="npm,yarn,pnpm">
+````bash
+npm install rshelekhov@latest
+````
+
+````bash
+yarn add rshelekhov@latest
+````
+
+````bash
+pnpm add rshelekhov@latest
+````
+    </CodeGroup>
+  </Step>
+  <Step title="Rebuild Docs" icon="refresh-cw">
+    Rebuild your documentation site.
+
+````bash
+npm run build
+````
+  </Step>
+  <Step title="Deploy" icon="rocket">
+    Deploy the updated site to your hosting provider.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  After upgrading, review your MDX files for deprecated syntax. Test parsing locally before deploying.
+</Callout>
+
+## Next Steps
+
+<Columns cols={3}>
+  <Card title="Introduction" icon="book-open" href="/introduction">
+    Learn the basics of rshelekhov documentation.
+  </Card>
+  <Card title="Quickstart" icon="zap" href="/quickstart">
+    Set up your first documentation page in minutes.
+  </Card>
+  <Card title="Components" icon="code" href="/components">
+    Explore all available MDX components.
+  </Card>
+</Columns>
+
+| Version | Date       | Key Changes                  |
+|---------|------------|------------------------------|
+| v1.2.0  | 2024-10-15 | Tabs, Columns, parsing fixes |
+| v1.1.0  | 2024-09-20 | API components, attributes   |
+| v1.0.0  | 2024-08-10 | Core release, breaking changes |

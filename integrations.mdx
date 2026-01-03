@@ -1,0 +1,150 @@
+---
+title: Integrations and Extensions
+description: Connect rshelekhov with third-party tools to enhance your documentation workflow.
+---
+
+## Overview
+
+Enhance your rshelekhov documentation workflow by integrating with popular third-party services. You can set up webhooks for real-time notifications, export content to various formats, and access programmatic control via the API. These integrations help automate updates, sync with version control, and extend functionality without custom development.
+
+<Callout kind="info">
+  All integrations require a valid API key from your rshelekhov dashboard at `https://dashboard.example.com`.
+</Callout>
+
+## Supported Integrations
+
+rshelekhov supports seamless connections with development tools, communication platforms, and automation services. Use the cards below to explore key integrations.
+
+<Columns cols={3}>
+  <Card title="GitHub" icon="github" href="https://github.com">
+    Sync documentation changes with repositories. Push updates directly from rshelekhov to GitHub.
+  </Card>
+  <Card title="Slack" icon="message-circle" href="#">
+    Receive notifications for page updates and collaboration events in your Slack workspace.
+  </Card>
+  <Card title="Zapier" icon="zap" href="https://zapier.com">
+    Build no-code automations connecting rshelekhov to 5000+ apps.
+  </Card>
+  <Card title="Notion" icon="book-open" href="#">
+    Import or export docs between rshelekhov and Notion for hybrid workflows.
+  </Card>
+</Columns>
+
+## Webhook Setup
+
+Set up webhooks to trigger actions on events like page creation or updates. Follow these steps to configure a webhook.
+
+<Steps>
+  <Step title="Generate Webhook URL" icon="link">
+    Navigate to Settings > Integrations in your dashboard. Click "New Webhook" and copy the generated URL.
+  </Step>
+  <Step title="Configure Events" icon="settings">
+    Select events such as `page.updated` or `page.published`. Test the configuration.
+  </Step>
+  <Step title="Add to Your Service" icon="code">
+    Paste the webhook URL into your service. Verify by triggering a test event.
+
+````bash
+# Example: Test webhook with curl
+curl -X POST https://your-webhook-url.com/webhook \
+  -H "Content-Type: application/json" \
+  -d '{
+    "event": "page.updated",
+    "page_id": "doc-123"
+  }'
+````
+
+  </Step>
+</Steps>
+
+## Export Options
+
+Export your documentation to multiple formats for sharing or migration. Choose the method that fits your needs.
+
+<Tabs>
+  <Tab title="PDF" icon="file-text">
+    Generate printable PDFs with full styling preserved.
+
+````javascript
+// API export example
+const response = await fetch('https://api.example.com/v1/docs/export/pdf', {
+  method: 'POST',
+  headers: {
+    'Authorization': `Bearer ${YOUR_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({ doc_id: 'doc-123' })
+});
+````
+
+  </Tab>
+  <Tab title="Markdown" icon="file">
+    Export clean Markdown files for GitHub or static sites.
+
+    <Callout kind="tip">
+      Markdown exports include frontmatter and images as relative links.
+    </Callout>
+
+  </Tab>
+  <Tab title="HTML" icon="code">
+    Get fully rendered HTML with embedded assets.
+
+````bash
+# CLI export command
+rshelekhov export --format=html --doc=doc-123 --output=./exports/
+````
+
+  </Tab>
+</Tabs>
+
+## API Access Basics
+
+Access rshelekhov features programmatically using REST API endpoints. Authenticate with your API key.
+
+<ParamField header="Authorization" param-type="string" required="true">
+  Bearer token: `Bearer YOUR_API_KEY`
+</ParamField>
+
+<ParamField query="doc_id" param-type="string" required="false">
+  Target documentation ID.
+</ParamField>
+
+Here is a basic request example:
+
+<Request tabs="JavaScript,cURL">
+  ````javascript
+  const response = await fetch('https://api.example.com/v1/docs', {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${YOUR_API_KEY}`
+    }
+  });
+  const docs = await response.json();
+  console.log(docs);
+  ````
+
+  ````bash
+  curl -X GET https://api.example.com/v1/docs \
+    -H "Authorization: Bearer YOUR_API_KEY"
+  ````
+</Request>
+
+<Response tabs="200">
+```json
+{
+  "docs": [
+    {
+      "id": "doc-123",
+      "title": "Integrations Guide",
+      "updated_at": "2024-10-15T10:00:00Z"
+    }
+  ]
+}
+```
+</Response>
+
+<Expandable title="Advanced API Usage" default-open="false">
+  For webhooks and real-time events, subscribe to the `/v1/webhooks` endpoint. Use query parameters for filtering.
+</Expandable>
+
+Start with these integrations to supercharge your workflow. For more details, check the full API reference in your dashboard.

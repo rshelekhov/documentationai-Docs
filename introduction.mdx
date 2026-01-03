@@ -1,0 +1,104 @@
+---
+title: Welcome to rshelekhov
+description: An overview of rshelekhov, your default documentation space for organizing and managing project documentation.
+---
+
+## Overview
+
+rshelekhov provides a centralized space to organize and manage all your project documentation. You create structured pages, embed code examples, and collaborate seamlessly with your team. Use it to build comprehensive guides that scale with your projects.
+
+## Key Features
+
+rshelekhov offers powerful tools to streamline your documentation workflow.
+
+<Columns cols={3}>
+  <Card title="Structured Pages" icon="book-open" href="#structured-pages">
+    Organize content with MDX components like Cards, Steps, and Tabs for rich, interactive docs.
+  </Card>
+  <Card title="Version Control" icon="git-branch" href="#version-control">
+    Track changes with built-in versioning and changelog support.
+  </Card>
+  <Card title="Customizable Themes" icon="palette" href="#themes">
+    Apply your brand colors, such as `#3B82F6`, for a professional look.
+  </Card>
+</Columns>
+
+## Quick Start
+
+Get started with rshelekhov in minutes.
+
+<Steps>
+  <Step title="Create Your Space" icon="plus">
+    Sign up at `https://dashboard.example.com` and create a new documentation space for your project.
+  </Step>
+  <Step title="Add Your First Page" icon="file-plus">
+    Upload your `introduction.mdx` file or use the editor to build from templates.
+  </Step>
+  <Step title="Embed Code Examples" icon="code">
+    Add interactive snippets like this installation example:
+
+    <CodeGroup tabs="npm,yarn">
+```bash
+npm install rshelekhov-docs
+```
+```bash
+yarn add rshelekhov-docs
+```
+    </CodeGroup>
+  </Step>
+  <Step title="Publish and Share" icon="globe">
+    Deploy your docs to `https://docs.example.com` and share the live link with your team.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  Explore the full API at `https://api.example.com/docs` to integrate rshelekhov programmatically.
+</Callout>
+
+## Quick Navigation
+
+Jump to key sections to dive deeper.
+
+<Columns cols={2}>
+  <Card title="Quickstart Guide" icon="zap" href="/quickstart">
+    Set up your first project in under 5 minutes.
+  </Card>
+  <Card title="Authentication" icon="lock" href="/authentication">
+    Secure your docs with API keys and tokens.
+  </Card>
+  <Card title="Configuration" icon="settings" href="/configuration">
+    Customize layouts and components.
+  </Card>
+  <Card title="Changelog" icon="git-commit" href="/changelog">
+    Stay updated with the latest releases.
+  </Card>
+</Columns>
+
+## Brand Guidelines
+
+Follow these guidelines to maintain consistency across your rshelekhov documentation.
+
+<ExpandableGroup>
+  <Expandable title="Primary Color" default-open="true">
+    Use the brand color `#3B82F6` for headings, links, and accents. Example CSS:
+
+````css
+:root {
+  --brand-primary: #3B82F6;
+}
+a {
+  color: var(--brand-primary);
+}
+````
+  </Expandable>
+  <Expandable title="Typography">
+    Stick to system fonts for readability: `-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`.
+  </Expandable>
+  <Expandable title="Icons">
+    Leverage Lucide icons like `book-open` and `zap` for visual appeal.
+  </Expandable>
+</ExpandableGroup>
+
+<Callout kind="info">
+  Need help? Check the [FAQ](/faq) or contact support via the dashboard.
+</Callout>
